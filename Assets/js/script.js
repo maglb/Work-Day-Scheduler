@@ -31,15 +31,21 @@ function displayTime() {
 }
 displayTime();
 
-var key;
+// var key;
+var dayEvent;
 
 var saveBtns = $(".save");
 saveBtns.each(function() {
+  var key = $(this).parent().attr('id');
+  var textArea = ($(this).prev()).children();
+  textArea.val(localStorage.getItem(key));
   $(this).on('click', function(event) {
     console.log(this);
-    var key = $(event.target).parent().attr('id');
     console.log(key);
-    var dayEvent = (($(event.target).prev()).children()).val().trim();
+     dayEvent = textArea.val().trim();
     localStorage.setItem(key, dayEvent);
+    // (($(event.target).prev()).children()).textContent = dayEvent;
   });
 });
+
+
