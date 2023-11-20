@@ -30,3 +30,16 @@ function displayTime() {
   timeDisplayEl.text(currentTime);
 }
 displayTime();
+
+var key;
+
+var saveBtns = $(".save");
+saveBtns.each(function() {
+  $(this).on('click', function(event) {
+    console.log(this);
+    var key = $(event.target).parent().attr('id');
+    console.log(key);
+    var dayEvent = (($(event.target).prev()).children()).val().trim();
+    localStorage.setItem(key, dayEvent);
+  });
+});
