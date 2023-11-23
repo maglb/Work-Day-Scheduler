@@ -49,3 +49,59 @@ saveBtns.each(function() {
 });
 
 
+  // TODO: Add code to apply the past, present, or future class to each time
+  // block by comparing the id to the current hour. HINTS: How can the id
+  // attribute of each time-block be used to conditionally add or remove the
+  // past, present, and future classes? How can Day.js be used to get the
+  // current hour in 24-hour time?
+
+//   function checkHour {
+// var currentHour = dayjs().format() 
+
+var currentHour = dayjs().get('hour');
+//   }
+
+//   function convertTime {
+
+//   }
+var calendarEl = $("calendar");
+var getId = $("calendar").children(0).attr('id');
+
+var body = $("body");
+// console.log(body.children("div").children());
+
+
+var allDiv = body.children("div").children();
+// console.log(typeof allDiv)
+
+// console.log(allDiv[2]);
+for ( var i=0; i < allDiv.length; i++) {
+  var divItem = allDiv[i];
+  var itemId = $(divItem).attr('id');
+  var hour = itemId.substring(5)
+  // console.log(divItem);
+  // console.log($(divItem).attr('id'));
+  // console.log(hour);
+  console.log(currentHour);
+
+  if ( hour === currentHour ){
+    // console.log(divItem);
+
+
+    $(divItem).addClass("present");
+    $(divItem).removeClass("future");
+    $(divItem).removeClass("past");
+  }
+
+   else if ( hour > currentHour ){
+    $(divItem).addClass("future");
+    $(divItem).removeClass("present");
+    $(divItem).removeClass("past");
+  }
+else {
+  $(divItem).addClass("past");
+  $(divItem).removeClass("future");
+  $(divItem).removeClass("present");
+}
+
+};
