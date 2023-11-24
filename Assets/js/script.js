@@ -68,29 +68,18 @@ var calendarEl = $("calendar");
 var getId = $("calendar").children(0).attr('id');
 
 var body = $("body");
-// console.log(body.children("div").children());
-
 
 var allDiv = body.children("div").children();
-// console.log(typeof allDiv)
 
-// console.log(allDiv[2]);
 for ( var i=0; i < allDiv.length; i++) {
   var divItem = allDiv[i];
   var itemId = $(divItem).attr('id');
   var hour = itemId.substring(5)
-  // console.log(divItem);
-  // console.log($(divItem).attr('id'));
-  // console.log(hour);
-  console.log(currentHour);
 
-  if ( hour === currentHour ){
-    // console.log(divItem);
-
-
-    $(divItem).addClass("present");
-    $(divItem).removeClass("future");
+  if (hour==currentHour){
     $(divItem).removeClass("past");
+    $(divItem).removeClass("future");
+    $(divItem).addClass("present");
   }
 
    else if ( hour > currentHour ){
@@ -103,5 +92,4 @@ else {
   $(divItem).removeClass("future");
   $(divItem).removeClass("present");
 }
-
 };
