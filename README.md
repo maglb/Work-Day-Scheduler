@@ -48,4 +48,4 @@ In order to complete this assignment, I have referred to a few online resources 
 
 ## Screenshots
 
-![Website Screenshot](./WorkDayScheduler.png)
+![Website Screenshot](./Assets/WorkDayScheduler.png)
